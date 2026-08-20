@@ -45,7 +45,7 @@
 //(()=>(console.log("Hey....using IIFE")))();
 
 
-//Callback function
+//*Callback function
 // function sum(a,b){
 //     return a+b;
 // }
@@ -128,6 +128,69 @@
 
 
 
-console.log("one")
-setTimeout(()=>console.log("Two"),1000);
-console.log("Three")
+// console.log("one")
+// setTimeout(()=>console.log("Two"),1000);
+// console.log("Three")
+
+
+
+// function sumofsqrt( a, b){
+//     return Math.sqrt(a) + Math.sqrt(b);
+// }
+// console.log(sumofsqrt(25,9));
+
+
+
+
+
+// function sumofsqrt(a, b) {
+//     return Math.sqrt(a) + Math.sqrt(b);
+// }
+
+// function sumofmsg(clbk, msg) {
+//     const sum = clbk(25, 9);
+//     return msg + sum;
+// }
+
+// console.log(sumofmsg(sumofsqrt, "The sum of two sqrt numbers are: "));
+
+
+
+
+//*promise in 35
+const myPromise = new Promise((resolve, reject) => {
+
+    let username = "akshay0512";
+    let password = "123456";
+
+    if (username == "akshay0512" && password == "123456") {
+        resolve("Success");
+    }
+    else {
+        reject("Invalid user");
+    }
+
+})
+
+myPromise
+    .then((msg) => {
+        console.log(msg);
+    })
+    .catch((msg) => {
+        console.log(msg);
+    })
+    .finally(() => {
+        console.log("All resources have been closed");
+    })
+ async function loginHandler(){
+    try{
+        const loginStatus=await myPromise;
+        console.log(loginStatus)
+
+    }catch(e){
+        console.log(e)
+    }finally{
+        console.log("Clossing all the open resources..")
+    }
+}
+loginHandler();
